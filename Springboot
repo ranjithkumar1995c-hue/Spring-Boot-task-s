@@ -64,3 +64,68 @@ Queue
 Trees
 Graphs.
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<fieldset>
+
+
+<legend>Employee Details</legend>
+
+<form action="/list1.html">
+
+
+<label for="name">First name: </label>
+<input type="text" name="fname" id="name">
+<br><br>
+
+<label for="lname">Last name: </label>
+<input type="text" name="lname" id="lname">
+<br><br>
+
+<input type="radio" name="gender"  >Male
+<input type="radio" name="gender"  >Female
+<br><br>
+
+<label for="empid">Employee Id: </label>
+<input type="text" name="empid" id="empid">
+<br><br>
+
+<label for="role">Designation: </label>
+<input type="text" name="role" id="role">
+<br><br>
+
+<label for="phone">Phone number: </label>
+<input type="tel" name="phone" id="phone">
+<br><br>
+
+<button type="submit">Submit</button>
+
+</form>
+
+</fieldset>
+</body>
+</html>
+(OUTPUT)=>Employee Details
+First name: 
+
+
+Last name: 
+
+
+Male Female
+
+Employee Id: 
+
+
+Designation: 
+
+
+Phone number: 
+
+
+Submit.
