@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<ol>
+<li>Programming Languages</li>
 
+
+
+<ol>
+<li>C</li>
+<li>C++</li>
+<li>Java</li>
+<li>Python</li>
+</ol>
+<li>DSA</li>
+<ol>
+<li>Array</li>
+<li>Linked List</li>
+<li>stack</li>
+<li>Queue</li>
+<li>Trees</li>
+<li>Graphs</li>
+
+</ol>
+<li>Web Technologies</li>
+<ol>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<ol>
+<li>Queue</li>
+<li>Trees</li>
+<li>Graphs</li>
+</ol>
+
+
+</ol>
+</ol>
+</ol>
+
+
+</body>
+(OUTPUT)=>Programming Languages
+C
+C++
+Java
+Python
+DSA
+Array
+Linked List
+stack
+Queue
+Trees
+Graphs
+Web Technologies
+HTML
+CSS
+JavaScript
+Queue
+Trees
+Graphs.
+</html>
