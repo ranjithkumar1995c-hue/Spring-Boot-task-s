@@ -216,3 +216,81 @@ Address:
 Submit.
 
 Submit.
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<fieldset>
+
+
+<legend>Your Details</legend>
+
+<form action="/list1.html">
+
+<label for="name">Name: </label>
+<input type="text" name="fname" id="name">
+<br><br>
+
+
+<label for="email">Email: </label>
+<input type="text" name="email" id="empil">
+<br><br>
+</fieldset>
+<fieldset>
+
+
+<legend>Your Review</legend>
+
+
+<label for="name">How did you hear about us?: </label>
+<select name=" " id=" ">
+<option value="-Google-">Google</option>
+
+</select>
+<br><br>
+<label for="lname">Would you visit again?: </label><br>
+<input type="radio" name="yes"  >Yes.
+<input type="radio" name="No"  >Yes.
+<input type="radio" name="Maybe"  >Maybe.<br>
+<label for="Comments">Comments: </label><br>
+
+<textarea name ="Address",id="Address" cols="40" rows="4"></textarea>
+<br><br>
+<input type="radio" name="gender"  >Sign me up for email updates.<br>
+
+<button type="submit review">Submit</button>
+
+</form>
+
+</fieldset>
+
+
+</body>
+</html>
+
+</body>
+</html>.
+(OUTPUT)=>Your Details
+Name: 
+
+
+Email: 
+
+
+Your Review
+How did you hear about us?: 
+Google
+
+
+Would you visit again?:
+Yes. Yes. Maybe.
+Comments:
+
+
+
+Sign me up for email updates.
+Submit.
