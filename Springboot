@@ -294,3 +294,45 @@ Comments:
 
 Sign me up for email updates.
 Submit.
+package Servletpractise1;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+
+ 
+ public class Servletpractise1 extends HttpServlet {
+	 // doget method - to get info from servletpratcise1
+	
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws  IOException {
+	
+	  response.setContentType("text/html");
+	  
+	  PrintWriter out=response.getWriter();
+	  out.println("<h1 style='color:red;background-color:red;'>servletpratcise1</h1>");
+
+	
+	
+	}
+
+}
+(OUTPUT)=><?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<servlet>
+	<servlet-name>Mobile</servlet-name>
+	<servlet-class>Servletpractise1.Servletpractise1</servlet-class>
+	 </servlet>
+	 
+	 <servlet-mapping>
+	 <servlet-name>Mobile</servlet-name>
+	 <url-pattern>/rk</url-pattern>
+	 </servlet-mapping>
+	 
+	 
+	 
+</web-app>
