@@ -336,3 +336,156 @@ import java.io.PrintWriter;
 	 
 	 
 </web-app>
+.....................20-09-2026.......................
+package AutoRefresh;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+@WebServlet("/helo")
+public class AutoRefresh extends HttpServlet{
+	private static final long serialUID=1L;
+	public AutoRefresh() {
+		super();
+	}
+	protected void doGet(HttpServletRequest req,HttpServletResponse resp)
+	         throws IOException ,ServletException{
+	     resp.setContentType("text/html");
+        resp.setIntHeader("Refresh", 5);
+//	      resp.setHeader("Refresh","5;URL=http://www.myntra.com");
+	      Format x=new SimpleDateFormat("dd.MM.yyyy.HH.mm.ss");
+	      Date date=new Date();
+	      String newDate=x.format(date);
+	      PrintWriter out=resp.getWriter();
+	      out.println("<style>");
+	      out.println("body{background-color:gray;}");
+	      out.println("h1{color:blue; font-weight:400;}");
+	      out.println("h3{color:orange; font-size:50px;}");
+	      out.println("<p>Css also included in this program </p>}");
+	      out.println("</style>");
+	      out.println("<h1>Now,we will see Date and Auto Refresh....here</h1>}");
+	      out.println("<h3>Current Time:</h3>"+newDate);
+	     
+	     
+	
+
+	}
+}
+
+
+
+package AutoRefresh;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import org.apache.catalina.connector.Response;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/ranjith")
+
+public class Cookiepractise extends HttpServlet {
+	private static final long serialversionUID=1L;
+	protected void doGet(HttpServletRequest request,HttpServletResponse resp)
+	throws ServletException,IOException{
+		
+		resp.setContentType("text/html");
+		PrintWriter out =resp.getWriter();
+		
+		String name=request.getParameter("name");
+		if(name!=null && !name.isEmpty()) {
+			Cookie c=new Cookie("Name",name);
+			c.setMaxAge(60*60*24);// 1day
+			resp.addCookie(c);
+		}
+		out.println("<html><body>");
+		out.println("<h2>Cookie Date</h2>");
+		
+		Cookie[]cookies=request.getCookies();
+		
+		if(cookies !=null) {
+			out.println("<u1>");
+			for(Cookie ck:cookies) {
+				out.println("<li><b>"+ck.getName()+"</b>:"+ck.getValue()+"</li>");
+			}
+			out.println("</ul>");
+		}else {
+			out.println("<p>No cookies found</p>");
+		}
+		out.println("</body></html>");
+	}
+			}
+		
+		
+
+package AutoRefresh;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/ramu")
+public class Indirectpractise  extends HttpServlet{
+	private static final long serialversionUID=1L;
+	protected void doGet(HttpServletRequest req,HttpServletResponse resp)
+			throws ServletException,IOException{
+		resp.setContentType("text/html");
+		PrintWriter out =resp.getWriter();
+		  out.println("<style>");
+	      out.println("body{background-color:red;color:green;}");
+	      out.println("</style>");
+	      out.println("body{background-color:yellow;color:red;}");
+	      out.println("</style>");
+	      out.println("<h1> lets activate send Indirectpractise method </h1>");
+	      out.println("<h2> lets activate send  Indirectpractise from one page to another </h2>");
+	      out.println("<p> I have included actofresh here</p>");
+	      out.println("<h2>Indirectpractise in 10seconds </h2>");
+	      out.println("<Script>");
+	      out.println("Set Timeout(()=>Location.href='Indirect',1000)");
+	      out.println("</Script>");
+	      
+	}
+	
+
+}
+
+
+package AutoRefresh;
+
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/Indirect ")
+public class SendIndirect1practisepage extends HttpServlet {
+	protected void doGet(HttpServletRequest req,HttpServletResponse resp)
+			throws ServletException,IOException{
+		resp.sendRedirect("http://www.meesho.com");
+	}
+
+}
+
