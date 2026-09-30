@@ -489,3 +489,178 @@ public class SendIndirect1practisepage extends HttpServlet {
 
 }
 
+
+==========================Servlet task's=====================
+package Serve1;
+
+import java.io.IOException;
+
+import java.io.PrintWriter;
+
+import jakarta.servlet.Servlet;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.annotation.WebServlet;
+
+public class Serve1 implements Servlet{
+	@WebServlet("/ramu")
+	//method 1 ---> using Servlet Interface 
+	public class Servlet1 implements Servlet{
+		
+//		1. init() - used for initialization
+		
+		ServletConfig config;
+		@Override
+		public void init(ServletConfig config) throws ServletException {
+
+
+			this.config=config;
+			
+			System.out.println("Servlet is started..");
+			
+			
+		}
+	//2. Service() - to handle multiple requests and responses
+
+		@Override
+		public void service(ServletRequest req, ServletResponse resp) throws ServletException, IOException {
+
+
+			resp.setContentType("text/html");
+			
+			PrintWriter out=resp.getWriter();
+			
+			
+			out.println("<h1 style='color:green; background-color:purple; '>Servlet is created under Servlet Interface</h1>");
+			
+			
+			out.println("<p>"+config.getServletName()+"</p>");
+			
+			out.println("<p>"+config.getServletContext()+"</p>");
+			
+			
+			
+			
+		}
+
+		
+	// 3. config() --> optional : to check configuration
+		@Override
+		public ServletConfig getServletConfig() {
+		 
+			return config;
+		}
+
+		
+//		4. getServletInfo() ---> to get servlet info
+		@Override
+		public String getServletInfo() {
+	 		return "I have created Servlet here..";
+		}
+
+//		5. destroy() --> to close/terminate servlet
+		@Override
+		public void destroy() {
+	 
+			System.out.println("Servlet is destroyed...");
+		}
+		
+	}
+
+	@Override
+	public void destroy() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ServletConfig getServletConfig() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getServletInfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void init(ServletConfig arg0) throws ServletException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void service(ServletRequest arg0, ServletResponse arg1) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+	}}
+==================Servlet task 2=====================
+package Serve1;
+
+
+	import java.io.IOException;
+	import java.io.PrintWriter;
+
+	import jakarta.servlet.GenericServlet;
+	import jakarta.servlet.ServletException;
+	import jakarta.servlet.ServletRequest;
+	import jakarta.servlet.ServletResponse;
+	import jakarta.servlet.annotation.WebServlet;
+
+	//most important
+
+	@WebServlet("/hlo")
+	//method 2: using GenericServlet (class)  --> "extends"
+	public class Serve2 extends GenericServlet {
+
+		@Override
+		public void service(ServletRequest req, ServletResponse resp) throws ServletException, IOException {
+	 		
+			resp.setContentType("text/html");
+			
+			PrintWriter o=resp.getWriter();
+			
+			o.println("<h2 style='color:red; background-color:green;'>Welcome to Generic Servlet </h2>");
+			o.println("<p>It is implemented under generic servlet class</p>");
+	}
+
+	}
+
+======================Servliet task 3============================
+package Serve1;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+@WebServlet("/ramu")
+//method 3: Using HttpServlet [class] -- extends  ==> currently widely used way
+public class Serve3 extends HttpServlet {
+	
+//	to get req and resp from the server to browser
+	
+	
+	public void doGet(HttpServletRequest req,HttpServletResponse resp) throws IOException,ServletException {
+		
+		
+       resp.setContentType("text/html");
+		
+		PrintWriter o=resp.getWriter();
+		
+		o.println("<h2 style='color:#fff; background-color:purple;'>Welcome to Generic Servlet </h2>");
+		o.println("<p>It is implemented under HTTP servlet class</p>");
+		}
+
+}
+
+
+
+
