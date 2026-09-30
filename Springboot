@@ -661,6 +661,203 @@ public class Serve3 extends HttpServlet {
 
 }
 
+=================Login Java====================
+package newServlet;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+@WebServlet("/abcd")
+public class MyLogin extends HttpServlet{
+	protected void doPost(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+		
+		resp.setContentType("text/html");
+		PrintWriter out=resp.getWriter();
+		
+		String name=req.getParameter("myname");
+		out.println("<h1>Welcome "+name+"</h1>");
+
+=========MyServletpage======================
+package newServlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import jakarta.servlet.Servlet;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+ 
+public class MyServlet implements Servlet {
+	
+//	1. init()-> used only once in entire program => to start the program
+	
+	
+	ServletConfig config;
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		 this.config=config;
+		 System.out.println("Servlet Initialized");
+		
+		 
+//		 Used when required (to view getServletInfo())
+//		 System.out.println("Servlet all Info"+getServletInfo());
+//		 
+//		 System.out.println("Servlet Information: "+config.getServletContext());
+//		 
+//		 System.out.println("Servlet Other Details: "+config.getServletName());
+	}
+
+	
+//	2. service()method=> works based on the request type like GET,PUT,POST etc
+
+	@Override
+	public void service(ServletRequest req, ServletResponse resp) throws ServletException, IOException {
+		resp.setContentType( "text/html");
+		PrintWriter out=resp.getWriter();
+		
+		out.println("<h1>Welcome to Programming with Servlet</h1>");
+		out.println("<h3>This program is implemented by Servlet Interface </h3>");
+		out.println("<p>I'm Servlet service method</p>");
+		
+		
+		
+//		If u need to see every method details in service method
+		ServletConfig config=getServletConfig();
+		out.println("<h2 style='color:green;'>Servlet Configuration :"+config.getServletContext()+"</h2>");
+		out.println("<p></p>");
+		out.println("<hr>");
+		out.println("<h2 style='color:blue;'>Servlet Information:</h2>");
+		out.println("<h3>"+config.getServletName()+"</h3>");
+		out.println("<h3>"+getServletInfo()+"</h3>");
+
+		
+	}
+
+	
+// 3. destroy() - used once in the entire program - terminate servlet
+	@Override
+	public void destroy() {
+		System.out.println("Servlet is terminated ");
+		
+		  
+		
+	}
+
+	
+//	4. getServletConfig() - returns servlet configuration object
+	@Override
+	public ServletConfig getServletConfig() {
+		  
+		return config;
+	}
+	
+//	5. getServletInfo() method - returns information about servlet
+
+	@Override
+	public String getServletInfo() {
+		 
+		return "Now, Servlet is implemented first under Interface method";
+	}
+
+//	To view the output for getServletInfo() method - you can view the details when required
+//	by simply calling methods.
+
+//package newServlet;
+//
+//import java.io.IOException;
+//import java.io.PrintWriter;
+//
+//import jakarta.servlet.GenericServlet;
+//import jakarta.servlet.ServletException;
+//import jakarta.servlet.ServletRequest;
+//import jakarta.servlet.ServletResponse;
+//
+////Using Generic Servlet method
+//
+////It is an abstract class, which already implements Servlet interface
+//public class MyServlet1  extends GenericServlet{
+//
+//	@Override
+//	public void service(ServletRequest req, ServletResponse resp) throws ServletException, IOException {
+//		 
+//    resp.setContentType("text/html");
+//    PrintWriter out=resp.getWriter();
+//    
+//    out.println("<h1>Hello I'm in Generic Servlet method<h1>");
+//    out.println("<h3>It is an Abstract class of Servlet interface</h3>");
+//    
+//	}
+//}
+===========My Servlet page==================
+//package newServlet;
+//
+//import java.io.IOException;
+//import java.io.PrintWriter;
+//
+////for Date
+//import java.util.Date;
+//
+//import jakarta.servlet.RequestDispatcher;
+//import jakarta.servlet.ServletException;
+//import jakarta.servlet.http.HttpServlet;
+//import jakarta.servlet.http.HttpServletRequest;
+//import jakarta.servlet.http.HttpServletResponse;
+//
+////Using Http Servlet methods
+//public class MyServlet3 extends HttpServlet {
+//	protected void doGet(HttpServletRequest req,HttpServletResponse resp)
+//			throws IOException,ServletException{
+//		resp.setContentType("text/html");
+//		PrintWriter out=resp.getWriter();
+//		
+//		out.println("<h1>Hello! I'm in HttpServlet method using doGet() method</h1>");
+//		out.println("<p>Most often using method in Servlet</p>");
+//		
+//		
+//		
+////		auto-refreshing - it refresh the webpage automatically after given seconds
+//		
+//		resp.setIntHeader("Refresh",5);
+//		out.println("<p>Page will autorefresh after 5 seconds..</p>");
+//		out.println("<h1>Current Time : "+new Date() +"</h1>");
+//		
+//		
+////=====================Method -1 (Client side)===================================================		
+//		
+//		
+////		Page redirection - Servlet provide 2 main redirection methods
+//		
+////		It is used to redirect web page from one to another web page
+//	
+//		
+//		resp.sendRedirect( "https://www.meesho.com");
+////		============ Method -2  (server-side) ===================================================
+//	
+////		Redirection happens inside server not in url 
+//		
+//		RequestDispatcher rd=req.getRequestDispatcher("https://www.myntra.com" );
+//		
+//		
+////		==============Both (Auto refresh+ page redirection)==========================================
+//		
+////		If u mentioned time+redirect => setHeader
+//		
+//		
+////		If u mentioned only time =>setIntHeader
+//		
+//		resp.setHeader("Refresh" ," 5; URL= www.google.com" );
+//		
+//		
+//
+//		
+//	}
+//
+//}
 
